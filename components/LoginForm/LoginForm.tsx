@@ -8,15 +8,19 @@ type LoginFormProps = {
 const i18n = {
     email: 'Почта',
     password: 'Пароль',
-    login: 'Войти'
+    login: 'Войти',
+    saveLogin: 'Запомнить?',
 }
 
 const LoginForm = (props: LoginFormProps) => {
     return (
         <form>
-            <Input label={i18n.email} onInput={() => {
+            <Input required label={i18n.email} onInput={() => {
             }} />
-            <Input label={i18n.password} type="password" onInput={() => {
+            <Input required label={i18n.password} type="password" onInput={() => {
+            }} />
+
+            <Input label={i18n.saveLogin} type="checkbox" onInput={() => {
             }} />
 
             <Button label={i18n.login} onClick={() => {
