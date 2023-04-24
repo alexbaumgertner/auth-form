@@ -1,20 +1,21 @@
-
 type ButtonProps = {
-    label: string
-    type?: 'submit' | 'button' | 'reset'
-    onClick: () => void
+  label: string
+  type?: 'submit' | 'button' | 'reset'
+  onClick: () => void
 }
 
-const Button = (props: ButtonProps) => {
-    const { label, type, onClick } = props
+import css from './Button.module.css'
 
-    return (
-        <button type={type} onClick={onClick}>
-            {label}
-        </button>
-    )
+const Button = (props: ButtonProps) => {
+  const { label, type, onClick } = props
+
+  return (
+    <button type={type} onClick={onClick} className={css.container} >
+      {label}
+    </button>
+  )
 }
 
 export {
-    Button
+  Button,
 }
