@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Button, Input, Checkbox } from '../../components'
 import css from './LoginForm.module.css'
 
@@ -16,6 +17,10 @@ const i18n = {
 }
 
 const LoginForm = (props: LoginFormProps) => {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [isRememberMeChecked, setIsRememberMeChecked] = useState(false)
+
   return (
     <form className={css.container}>
       <div className={css.email}>
@@ -24,7 +29,9 @@ const LoginForm = (props: LoginFormProps) => {
           name="email"
           label={i18n.email}
           placeholder={i18n.emailPlaceholder}
-          onInput={() => {}}
+          onInput={(event) => {
+            setEmail(event.target.value)
+          }}
         />
       </div>
       <div className={css.password}>
@@ -33,12 +40,18 @@ const LoginForm = (props: LoginFormProps) => {
           name="password"
           label={i18n.password}
           type="password"
-          onInput={() => {
+          onInput={(event) => {
+            setPassword(event.target.value)
           }}
         />
       </div>
       <div className={css.rememberMe}>
-        <Checkbox>{i18n.rememberMe}</Checkbox>
+        <Checkbox
+          onChange={(event) => {
+            setIsRememberMeChecked(event.target.value.checked)
+          }}>
+          {i18n.rememberMe}
+        </Checkbox>
       </div>
 
       <div className={css.login}>
@@ -56,6 +69,9 @@ const LoginForm = (props: LoginFormProps) => {
           }}
         />
       </div>
+
+      <div>isRememberMeChecked: {isRememberMeChecked}</div>
+
     </form>
   )
 }

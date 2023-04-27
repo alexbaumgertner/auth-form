@@ -1,10 +1,11 @@
+
 type InputProps = {
   required?: boolean
   label?: string
   name?: string
   placeholder?: string
   type?: 'text' | 'password'
-  onInput: () => void
+  onInput: (event: any) => void
 }
 
 import css from './Input.module.css'
