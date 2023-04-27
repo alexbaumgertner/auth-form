@@ -2,10 +2,6 @@ import { useState } from 'react'
 import { Button, Input, Checkbox } from '../../components'
 import css from './LoginForm.module.css'
 
-type LoginFormProps = {
-  provider: 'local' | 'google'
-}
-
 /* TODO: use i18n */
 const i18n = {
   email: 'Почта',
@@ -16,13 +12,16 @@ const i18n = {
   createAccount: 'Создать аккаунт',
 }
 
-const LoginForm = (props: LoginFormProps) => {
+const LoginForm = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [isRememberMeChecked, setIsRememberMeChecked] = useState(false)
 
   return (
-    <form className={css.container}>
+    <form
+      className={css.container}
+      onSubmit={(event) => { event.preventDefault() }}
+    >
       <div className={css.email}>
         <Input
           required
@@ -48,7 +47,7 @@ const LoginForm = (props: LoginFormProps) => {
       <div className={css.rememberMe}>
         <Checkbox
           onChange={(event) => {
-            setIsRememberMeChecked(event.target.value.checked)
+            setIsRememberMeChecked(event.target.checked)
           }}>
           {i18n.rememberMe}
         </Checkbox>
@@ -57,7 +56,22 @@ const LoginForm = (props: LoginFormProps) => {
       <div className={css.login}>
         <Button
           label={i18n.login}
-          onClick={() => {
+          onClick={async () => {
+            const loginData = {
+              email,
+              password,
+              isRememberMeChecked,
+            }
+
+            const loginResponse = await fetch(
+              '/api/auth/signin',
+              {
+                method: 'post',
+                body: JSON.stringify(loginData),
+              })
+
+            if (loginResponse.status === 200) {} else {}
+
           }}
         />
       </div>
@@ -69,9 +83,6 @@ const LoginForm = (props: LoginFormProps) => {
           }}
         />
       </div>
-
-      <div>isRememberMeChecked: {isRememberMeChecked}</div>
-
     </form>
   )
 }

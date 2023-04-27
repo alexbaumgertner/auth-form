@@ -12,7 +12,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={css.loginForm}>
-        <LoginForm provider="local" />
+        <LoginForm />
       </div>
     </div>
   )
