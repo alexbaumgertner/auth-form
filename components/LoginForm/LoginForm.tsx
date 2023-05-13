@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Link from 'next/link'
 import { Button, Input, Checkbox } from '../../components'
 import css from './LoginForm.module.css'
 
@@ -7,6 +8,7 @@ const i18n = {
   email: 'Почта',
   emailPlaceholder: 'mail@example.com',
   password: 'Пароль',
+  remindPassword: 'Забыли пароль?',
   login: 'Войти',
   rememberMe: 'Запомнить',
   createAccount: 'Создать аккаунт',
@@ -34,6 +36,12 @@ const LoginForm = () => {
         />
       </div>
       <div className={css.password}>
+        <Link
+          className={css.remindPassword}
+          href="/remind-password"
+        >
+          {i18n.remindPassword}
+        </Link>
         <Input
           required
           name="password"
