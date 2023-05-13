@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Link from 'next/link'
-import { Button, Input, Checkbox } from '../../components'
+import { Button, Input } from '../../components'
 import css from './LoginForm.module.css'
 
 /* TODO: use i18n */
@@ -10,14 +10,12 @@ const i18n = {
   password: 'Пароль',
   remindPassword: 'Забыли пароль?',
   login: 'Войти',
-  rememberMe: 'Запомнить',
-  createAccount: 'Создать аккаунт',
+  createAccount: 'Регистрация',
 }
 
 const LoginForm = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [isRememberMeChecked, setIsRememberMeChecked] = useState(false)
 
   return (
     <form
@@ -53,15 +51,6 @@ const LoginForm = () => {
           }}
         />
       </div>
-      <div className={css.rememberMe}>
-        <Checkbox
-          onChange={(event) => {
-            setIsRememberMeChecked(event.target.checked)
-          }}>
-          {i18n.rememberMe}
-        </Checkbox>
-      </div>
-
       <div className={css.login}>
         <Button
           label={i18n.login}
@@ -69,7 +58,6 @@ const LoginForm = () => {
             const loginData = {
               email,
               password,
-              isRememberMeChecked,
             }
 
             const loginResponse = await fetch(
