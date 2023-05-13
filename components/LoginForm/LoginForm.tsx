@@ -39,6 +39,7 @@ const LoginForm = () => {
         <Link
           className={css.remindPassword}
           href="/remind-password"
+          tabIndex={-1}
         >
           {i18n.remindPassword}
         </Link>
@@ -85,11 +86,11 @@ const LoginForm = () => {
       </div>
 
       <div className={css.signup}>
-        <Button
-          label={i18n.createAccount}
-          onClick={() => {
-          }}
-        />
+        <Link
+          href="/create-account"
+        >
+          {i18n.createAccount}
+        </Link>
       </div>
     </form>
   )

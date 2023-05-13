@@ -12,10 +12,14 @@
 
 .password {
   margin: 0 0 15px 0;
+  position: relative;
 }
 
 .remindPassword {
   font-size: 0.8em;
+  user-select: none;
+  position: absolute;
+  right: 0;
 }
 
 .rememberMe {
@@ -23,9 +27,11 @@
 }
 
 .login {
-
+  display: flex;
+  justify-content: flex-end;
 }
 
 .signup {
-
+  margin: 50px 0 0 0;
+  display: flex;
 }
