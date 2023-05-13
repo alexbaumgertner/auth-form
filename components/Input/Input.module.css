@@ -10,5 +10,16 @@
 .control {
   display: block;
   padding: 4px 11px;
+  height: 36px;
   width: 100%;
+  border: 1px solid #e0e0e0;
+  background-color: transparent !important;
+}
+
+.control:hover {
+  border: 1px solid #2f2f2f;
+}
+
+.control:focus {
+  border: 1px solid #050505;
 }
