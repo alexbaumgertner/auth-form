@@ -1,37 +1,16 @@
 import { NextPage } from 'next'
-import { Button, Input, Checkbox } from '../../components'
-import { useState } from 'react'
+import { CreateAccountForm } from '../../components'
 
-/* TODO: use i18n */
-const i18n = {
-  email: 'Почта',
-  emailPlaceholder: 'mail@example.com',
-  resetPassword: 'Сбросить пароль'
-}
+import css from './create-account.module.css'
 
 const CreateAccount: NextPage = () => {
-  const [email, setEmail] = useState('')
 
   return (
-    <div>
-      <form
-        onSubmit={(event) => { event.preventDefault() }}
-      >
-      <Input
-        required
-        name="email"
-        label={i18n.email}
-        placeholder={i18n.emailPlaceholder}
-        onInput={(event) => {
-          setEmail(event.target.value)
-        }}
+    <div className={css.page}>
+      <CreateAccountForm
+        onSubmit={() => { }}
+        className={css.form}
       />
-      <Button
-        label={i18n.resetPassword}
-        onClick={() => {
-        }}
-      />
-      </form>
     </div>
   )
 }

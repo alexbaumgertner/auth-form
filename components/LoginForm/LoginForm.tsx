@@ -36,7 +36,7 @@ const LoginForm = () => {
       <div className={css.password}>
         <Link
           className={css.remindPassword}
-          href="/remind-password"
+          href="/reset-password"
           tabIndex={-1}
         >
           {i18n.remindPassword}

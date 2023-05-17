@@ -5,7 +5,7 @@ type InputProps = {
   name?: string
   placeholder?: string
   type?: 'text' | 'password'
-  onInput: (event: any) => void
+  onInput?: (event: any) => void
 }
 
 import css from './Input.module.css'
