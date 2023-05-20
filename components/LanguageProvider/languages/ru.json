@@ -1,0 +1,8 @@
+{
+  "email": "Почта",
+  "emailPlaceholder": "mail@example.com",
+  "password": "Пароль",
+  "remindPassword": "Забыли пароль?",
+  "login": "Войти",
+  "createAccount": "Регистрация"
+}

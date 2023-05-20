@@ -1,5 +1,5 @@
-import { Button, Input } from '../../components'
 import { useState } from 'react'
+import { Button, Input } from '../../components'
 
 import css from './ResetPasswordForm.module.css'
 
@@ -17,7 +17,6 @@ type PropsType = {
 
 const ResetPasswordForm = (props: PropsType) => {
   const [email, setEmail] = useState('')
-
   return (
     <div className={props.className}>
       <form
