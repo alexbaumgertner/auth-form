@@ -1,5 +1,10 @@
 {
   "email": "E-mail",
   "emailPlaceholder": "mail@example.com",
-  "resetPassword": "Reset password"
+  "password": "Password",
+  "passwordSubmit": "Confirm password",
+  "resetPassword": "Reset password",
+  "remindPassword": "Remind password",
+  "login": "Login",
+  "createAccount": "Create account"
 }

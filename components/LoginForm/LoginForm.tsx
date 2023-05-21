@@ -1,17 +1,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
-import { Button, Input } from '../../components'
+import { Button, Input, Text } from '../../components'
 import css from './LoginForm.module.css'
-
-/* TODO: use i18n */
-const i18n = {
-  email: 'Почта',
-  emailPlaceholder: 'mail@example.com',
-  password: 'Пароль',
-  remindPassword: 'Забыли пароль?',
-  login: 'Войти',
-  createAccount: 'Регистрация',
-}
 
 const LoginForm = () => {
   const [email, setEmail] = useState('')
@@ -26,8 +16,8 @@ const LoginForm = () => {
         <Input
           required
           name="email"
-          label={i18n.email}
-          placeholder={i18n.emailPlaceholder}
+          label={Text({ tid: 'email' })}
+          placeholder={Text({ tid: 'emailPlaceholder' })}
           onInput={(event) => {
             setEmail(event.target.value)
           }}
@@ -39,12 +29,12 @@ const LoginForm = () => {
           href="/reset-password"
           tabIndex={-1}
         >
-          {i18n.remindPassword}
+          {Text({ tid: 'remindPassword' })}
         </Link>
         <Input
           required
           name="password"
-          label={i18n.password}
+          label={Text({ tid: 'password' })}
           type="password"
           onInput={(event) => {
             setPassword(event.target.value)
@@ -53,7 +43,7 @@ const LoginForm = () => {
       </div>
       <div className={css.login}>
         <Button
-          label={i18n.login}
+          label={Text({ tid: 'login' })}
           onClick={async () => {
             const loginData = {
               email,
@@ -77,7 +67,7 @@ const LoginForm = () => {
         <Link
           href="/create-account"
         >
-          {i18n.createAccount}
+          {Text({ tid: 'createAccount' })}
         </Link>
       </div>
     </form>

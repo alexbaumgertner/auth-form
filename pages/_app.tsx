@@ -1,8 +1,17 @@
-import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+import { LanguageProvider, LanguageSelector } from '../components'
+import '../styles/globals.css'
+
+function MyApp ({ Component, pageProps }: AppProps) {
+  return (
+    <LanguageProvider>
+      <div className="language-selector">
+        <LanguageSelector />
+      </div>
+      <Component {...pageProps} />
+    </LanguageProvider>
+  )
 }
 
 export default MyApp

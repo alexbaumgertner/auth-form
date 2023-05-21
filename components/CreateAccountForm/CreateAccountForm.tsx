@@ -1,15 +1,7 @@
-import { Button, Input } from '../../components'
 import { useState } from 'react'
-import css from './CreateAccountForm.module.css'
 
-/* TODO: use i18n */
-const i18n = {
-  email: 'Почта',
-  emailPlaceholder: 'mail@example.com',
-  password: 'Пароль',
-  passwordSubmit: 'Подтвердите пароль',
-  createAccount: 'Создать аккаунт'
-}
+import { Button, Input, Text } from '../../components'
+import css from './CreateAccountForm.module.css'
 
 type PropsType = {
   onSubmit: () => void
@@ -31,8 +23,8 @@ const CreateAccountForm = (props: PropsType) => {
           <Input
             required
             name="email"
-            label={i18n.email}
-            placeholder={i18n.emailPlaceholder}
+            label={Text({ tid: 'email' })}
+            placeholder={Text({ tid: 'emailPlaceholder' })}
             onInput={(event) => {
               setEmail(event.target.value)
             }}
@@ -42,20 +34,20 @@ const CreateAccountForm = (props: PropsType) => {
           <Input
             required
             name="password"
-            label={i18n.password}
+            label={Text({ tid: 'password' })}
             type="password"
           />
           <Input
             required
             name="passwordSubmit"
-            label={i18n.passwordSubmit}
+            label={Text({ tid: 'passwordSubmit' })}
             type="password"
           />
         </div>
         <div className={css.createAccount}>
           <Button
             className={css.createAccountButton}
-            label={i18n.createAccount}
+            label={Text({ tid: 'createAccount' })}
             onClick={async () => {
               const loginData = {
                 email,

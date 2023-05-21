@@ -1,11 +1,18 @@
-import React, { useState, createContext, useContext } from 'react'
+import React, { useState, createContext, useContext, useEffect } from 'react'
 
 import { languageOptions, dictionaryList } from './languages'
 import type { LanguagesEnum } from './languages'
 
-export const LanguageContext = createContext({
+type LanguageContextType = {
+  userLanguage: keyof typeof LanguagesEnum
+  dictionary: typeof dictionaryList.en
+  userLanguageChange: (selected: keyof typeof LanguagesEnum) => void
+}
+
+export const LanguageContext = createContext<LanguageContextType>({
   userLanguage: 'en',
   dictionary: dictionaryList.en,
+  userLanguageChange: () => {},
 })
 
 const localStorageKey = 'userLanguage';
@@ -13,9 +20,9 @@ const localStorageKey = 'userLanguage';
 export const LanguageProvider = ({ children }: { children: React.ReactNode }) => {
   const [userLanguage, setUserLanguage] = useState<keyof typeof LanguagesEnum>('en')
 
-  React.useEffect(() => {
+  useEffect(() => {
     setUserLanguage(
-      window.localStorage.getItem(localStorageKey) as keyof typeof LanguagesEnum
+      window.localStorage.getItem(localStorageKey) as keyof typeof LanguagesEnum || 'en'
     )
   }, [])
 
@@ -37,7 +44,7 @@ export const LanguageProvider = ({ children }: { children: React.ReactNode }) =>
 }
 
 // get text according to id & current language
-export function Text ({ tid }: { tid: string }) {
+export function Text ({ tid }: { tid: string }): string {
   const languageContext = useContext(LanguageContext)
 
   return languageContext.dictionary[tid] || tid

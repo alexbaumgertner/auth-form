@@ -2,6 +2,8 @@
   "email": "Почта",
   "emailPlaceholder": "mail@example.com",
   "password": "Пароль",
+  "passwordSubmit": "Подтвердите пароль",
+  "resetPassword": "Сбросить пароль",
   "remindPassword": "Забыли пароль?",
   "login": "Войти",
   "createAccount": "Регистрация"

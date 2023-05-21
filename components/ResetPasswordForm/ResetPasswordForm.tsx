@@ -1,14 +1,7 @@
 import { useState } from 'react'
-import { Button, Input } from '../../components'
 
+import { Button, Input, Text } from '../../components'
 import css from './ResetPasswordForm.module.css'
-
-/* TODO: use i18n */
-const i18n = {
-  email: 'Почта',
-  emailPlaceholder: 'mail@example.com',
-  resetPassword: 'Сбросить пароль'
-}
 
 type PropsType = {
   onSubmit: () => void
@@ -26,8 +19,8 @@ const ResetPasswordForm = (props: PropsType) => {
           <Input
             required
             name="email"
-            label={i18n.email}
-            placeholder={i18n.emailPlaceholder}
+            label={Text({ tid: 'email' })}
+            placeholder={Text({ tid: 'emailPlaceholder' })}
             onInput={(event) => {
               setEmail(event.target.value)
             }}
@@ -35,7 +28,7 @@ const ResetPasswordForm = (props: PropsType) => {
         </div>
         <div className={css.resetPassword}>
           <Button
-            label={i18n.resetPassword}
+            label={Text({ tid: 'resetPassword' })}
             className={css.resetPasswordButton}
           />
         </div>
