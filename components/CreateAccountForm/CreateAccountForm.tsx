@@ -4,7 +4,7 @@ import { Button, Input, Text } from '../../components'
 import css from './CreateAccountForm.module.css'
 
 type PropsType = {
-  onSubmit: () => void
+  onSubmit: (formData: { email: string }) => void
   className?: string
 }
 
@@ -16,7 +16,7 @@ const CreateAccountForm = (props: PropsType) => {
       <form
         onSubmit={(event) => {
           event.preventDefault()
-          props.onSubmit()
+          return props.onSubmit({ email })
         }}
       >
         <div className={css.email}>
@@ -48,21 +48,6 @@ const CreateAccountForm = (props: PropsType) => {
           <Button
             className={css.createAccountButton}
             label={Text({ tid: 'createAccount' })}
-            onClick={async () => {
-              const loginData = {
-                email,
-              }
-
-              const loginResponse = await fetch(
-                '/api/auth/signin',
-                {
-                  method: 'post',
-                  body: JSON.stringify(loginData),
-                })
-
-              if (loginResponse.status === 200) {} else {}
-
-            }}
           />
         </div>
       </form>

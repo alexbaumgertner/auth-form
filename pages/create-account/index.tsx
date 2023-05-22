@@ -8,7 +8,17 @@ const CreateAccount: NextPage = () => {
   return (
     <div className={css.page}>
       <CreateAccountForm
-        onSubmit={() => { }}
+        onSubmit={async (loginData) => {
+          const loginResponse = await fetch(
+            '/api/auth/signin',
+            {
+              method: 'post',
+              body: JSON.stringify(loginData),
+            })
+
+          if (loginResponse.status === 200) {} else {}
+
+        }}
         className={css.form}
       />
     </div>

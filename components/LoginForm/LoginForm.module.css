@@ -7,6 +7,18 @@
   padding: 35px 60px 25px 60px;
 }
 
+.defaultState {
+  opacity: 1;
+}
+
+.loadingState {
+  opacity: 0.5;
+}
+
+.errorState {
+  color: red;
+}
+
 .email {
   margin: 0 0 35px 0;
 }

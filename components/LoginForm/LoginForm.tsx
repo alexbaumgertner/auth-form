@@ -3,14 +3,34 @@ import Link from 'next/link'
 import { Button, Input, Text } from '../../components'
 import css from './LoginForm.module.css'
 
-const LoginForm = () => {
+type LoginFormProps = {
+  onSubmit: (loginData: { email: string, password: string }) => void
+  state?: 'default' | 'loading' | 'error'
+}
+
+const LoginForm = (props: LoginFormProps) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
+  let stateCss: string = ''
+  switch (props.state) {
+    case 'loading':
+      stateCss = css.loadingState
+      break
+    case 'error':
+      stateCss = css.errorState
+      break
+    case 'default':
+      stateCss = css.defaultState
+  }
+
   return (
     <form
-      className={css.container}
-      onSubmit={(event) => { event.preventDefault() }}
+      className={`${css.container} ${stateCss}`}
+      onSubmit={(event) => {
+        event.preventDefault()
+        return props.onSubmit({ email, password })
+      }}
     >
       <div className={css.email}>
         <Input
@@ -44,22 +64,7 @@ const LoginForm = () => {
       <div className={css.login}>
         <Button
           label={Text({ tid: 'login' })}
-          onClick={async () => {
-            const loginData = {
-              email,
-              password,
-            }
-
-            const loginResponse = await fetch(
-              '/api/auth/signin',
-              {
-                method: 'post',
-                body: JSON.stringify(loginData),
-              })
-
-            if (loginResponse.status === 200) {} else {}
-
-          }}
+          disabled={props.state === 'loading'}
         />
       </div>
 
