@@ -4,7 +4,7 @@ type InputProps = {
   label?: string
   name?: string
   placeholder?: string
-  type?: 'text' | 'password'
+  type?: 'text' | 'password' | 'email'
   onInput?: (event: any) => void
 }
 

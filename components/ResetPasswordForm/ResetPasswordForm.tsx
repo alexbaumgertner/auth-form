@@ -1,10 +1,10 @@
 import { useState } from 'react'
 
-import { Button, Input, Text } from '../../components'
+import { Input, Text, Form } from '../../components'
 import css from './ResetPasswordForm.module.css'
 
 type PropsType = {
-  onSubmit: () => void
+  onSubmit: (loginData: { email: string }) => void
   className?: string
 }
 
@@ -12,8 +12,10 @@ const ResetPasswordForm = (props: PropsType) => {
   const [email, setEmail] = useState('')
   return (
     <div className={props.className}>
-      <form
-        onSubmit={(event) => { event.preventDefault() }}
+      <Form
+        onSubmit={props.onSubmit}
+        formData={{ email }}
+        submitLabel={Text({ tid: 'resetPassword' })}
       >
         <div className={css.email}>
           <Input
@@ -26,13 +28,7 @@ const ResetPasswordForm = (props: PropsType) => {
             }}
           />
         </div>
-        <div className={css.resetPassword}>
-          <Button
-            label={Text({ tid: 'resetPassword' })}
-            className={css.resetPasswordButton}
-          />
-        </div>
-      </form>
+      </Form>
     </div>
   )
 }

@@ -1,0 +1,21 @@
+.container {
+
+}
+
+.defaultState {
+  opacity: 1;
+}
+
+.loadingState {
+  opacity: 0.5;
+}
+
+.errorState {
+  color: red;
+}
+
+
+.submit {
+  display: flex;
+  justify-content: flex-start;
+}

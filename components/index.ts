@@ -6,3 +6,5 @@ export { ResetPasswordForm } from './ResetPasswordForm'
 export { CreateAccountForm } from './CreateAccountForm'
 export { LanguageProvider, LanguageContext, Text } from './LanguageProvider'
 export { LanguageSelector } from './LanguageSelector'
+export { Form } from './Form'
+

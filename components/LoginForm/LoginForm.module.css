@@ -7,18 +7,6 @@
   padding: 35px 60px 25px 60px;
 }
 
-.defaultState {
-  opacity: 1;
-}
-
-.loadingState {
-  opacity: 0.5;
-}
-
-.errorState {
-  color: red;
-}
-
 .email {
   margin: 0 0 35px 0;
 }
@@ -28,16 +16,12 @@
   position: relative;
 }
 
-.remindPassword {
+.resetPassword {
+  margin: 15px 0 0 0;
   font-size: 0.8em;
   user-select: none;
-  position: absolute;
-  right: 0;
-}
-
-.login {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 .signup {

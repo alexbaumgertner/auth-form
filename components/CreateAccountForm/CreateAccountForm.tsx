@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { Button, Input, Text } from '../../components'
+import { Button, Input, Text, Form } from '../../components'
 import css from './CreateAccountForm.module.css'
 
 type PropsType = {
@@ -13,15 +13,15 @@ const CreateAccountForm = (props: PropsType) => {
 
   return (
     <div className={props.className}>
-      <form
-        onSubmit={(event) => {
-          event.preventDefault()
-          return props.onSubmit({ email })
-        }}
+      <Form
+        onSubmit={props.onSubmit}
+        formData={{ email }}
+        submitLabel={Text({ tid: 'createAccount' })}
       >
         <div className={css.email}>
           <Input
             required
+            type="email"
             name="email"
             label={Text({ tid: 'email' })}
             placeholder={Text({ tid: 'emailPlaceholder' })}
@@ -44,13 +44,7 @@ const CreateAccountForm = (props: PropsType) => {
             type="password"
           />
         </div>
-        <div className={css.createAccount}>
-          <Button
-            className={css.createAccountButton}
-            label={Text({ tid: 'createAccount' })}
-          />
-        </div>
-      </form>
+      </Form>
     </div>
   )
 }
