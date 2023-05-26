@@ -6,5 +6,6 @@
   "resetPassword": "Сбросить пароль",
   "remindPassword": "Забыли пароль?",
   "login": "Войти",
-  "createAccount": "Регистрация"
+  "createAccount": "Регистрация",
+  "passwordMistyped": "Пароли не совпадают"
 }

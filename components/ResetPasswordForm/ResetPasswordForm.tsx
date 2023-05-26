@@ -6,6 +6,7 @@ import css from './ResetPasswordForm.module.css'
 type PropsType = {
   onSubmit: (loginData: { email: string }) => void
   className?: string
+  state?: 'default' | 'loading' | 'error'
 }
 
 const ResetPasswordForm = (props: PropsType) => {
@@ -14,6 +15,7 @@ const ResetPasswordForm = (props: PropsType) => {
     <div className={props.className}>
       <Form
         onSubmit={props.onSubmit}
+        state={props.state}
         formData={{ email }}
         submitLabel={Text({ tid: 'resetPassword' })}
       >

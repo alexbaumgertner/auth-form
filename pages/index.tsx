@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { LoginForm } from '../components'
+import { login } from './frontend-api/auth'
 import css from './index.module.css'
 
 const Home: NextPage = () => {
@@ -11,9 +12,7 @@ const Home: NextPage = () => {
   useEffect(() => {
     if (loginData.email && loginData.password) {
       setState('loading')
-      setTimeout(() => {
-        setState('error')
-      }, 1000)
+      login(loginData)
     }
   }, [loginData])
 
@@ -27,10 +26,11 @@ const Home: NextPage = () => {
       <div className={css.loginForm}>
         <LoginForm
           state={state}
-          onSubmit={(loginData) => {
-            console.log(loginData)
-            setLoginData(loginData)
-          }} />
+          onSubmit={(submittedData) => {
+            console.log(submittedData)
+            setLoginData(submittedData)
+          }}
+        />
       </div>
     </div>
   )

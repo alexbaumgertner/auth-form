@@ -4,18 +4,25 @@ import { Button, Input, Text, Form } from '../../components'
 import css from './CreateAccountForm.module.css'
 
 type PropsType = {
-  onSubmit: (formData: { email: string }) => void
+  onSubmit: (formData: { email: string, password: string }) => void
   className?: string
+  state: 'loading' | 'error' | 'default'
 }
 
 const CreateAccountForm = (props: PropsType) => {
   const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [passwordRepeat, setPasswordRepeat] = useState('')
+
+  const isPasswordMistyped = passwordRepeat?.length > 0 &&
+    password?.length > 0 &&
+    password !== passwordRepeat
 
   return (
     <div className={props.className}>
       <Form
         onSubmit={props.onSubmit}
-        formData={{ email }}
+        formData={{ email, password }}
         submitLabel={Text({ tid: 'createAccount' })}
       >
         <div className={css.email}>
@@ -36,13 +43,26 @@ const CreateAccountForm = (props: PropsType) => {
             name="password"
             label={Text({ tid: 'password' })}
             type="password"
+            onInput={(event) => {
+              setPassword(event.target.value)
+            }}
           />
           <Input
             required
             name="passwordSubmit"
             label={Text({ tid: 'passwordSubmit' })}
             type="password"
+            onInput={(event) => {
+              setPasswordRepeat(event.target.value)
+            }}
           />
+
+          {isPasswordMistyped && (
+            <div className={css.passwordMistyped}>
+              {Text({ tid: 'passwordMistyped' })}
+            </div>
+          )}
+
         </div>
       </Form>
     </div>

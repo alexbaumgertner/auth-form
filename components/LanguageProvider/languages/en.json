@@ -6,5 +6,6 @@
   "resetPassword": "Reset password",
   "remindPassword": "Remind password",
   "login": "Login",
-  "createAccount": "Create an account"
+  "createAccount": "Create an account",
+  "passwordMistyped": "Passwords should match"
 }
