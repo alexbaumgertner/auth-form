@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import type { NextPage } from 'next'
-import { LoginForm } from '../components'
+import { LoginForm, DevLogger } from '../components'
 import { login } from '../frontend-api/auth'
 import css from './index.module.css'
 
@@ -38,12 +38,7 @@ const Home: NextPage = () => {
         }}
         className={css.form}
       />
-      {loginResponse && (
-        <div
-          className={css.response}
-          dangerouslySetInnerHTML={{ __html: `<pre>${JSON.stringify(loginResponse, null, 2)}</pre>` }}
-        />
-      )}
+      <DevLogger logData={loginResponse} />
     </div>
   )
 }
