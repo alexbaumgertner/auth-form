@@ -5,6 +5,7 @@ import css from './LoginForm.module.css'
 
 type LoginFormProps = {
   onSubmit: (loginData: { email: string, password: string }) => void
+  className?: string
   state?: 'default' | 'loading' | 'error'
 }
 
@@ -13,7 +14,7 @@ const LoginForm = (props: LoginFormProps) => {
   const [password, setPassword] = useState('')
 
   return (
-    <div className={css.container}>
+    <div className={props.className}>
       <Form
         onSubmit={props.onSubmit}
         state={props.state}

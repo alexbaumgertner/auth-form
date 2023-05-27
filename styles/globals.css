@@ -5,10 +5,6 @@ body {
   font-family: sans-serif;
 }
 
-* {
-  box-sizing: border-box;
-}
-
 .app {
   height: 100vh;
   background-color: #fffcf4;

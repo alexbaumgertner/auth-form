@@ -17,21 +17,15 @@ const Home: NextPage = () => {
   }, [loginData])
 
   return (
-    <div>
-      <Head>
-        <title>React Login form</title>
-        <meta name="description" content="Login form" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <div className={css.loginForm}>
-        <LoginForm
-          state={state}
-          onSubmit={(submittedData) => {
-            console.log(submittedData)
-            setLoginData(submittedData)
-          }}
-        />
-      </div>
+    <div className={css.page}>
+      <LoginForm
+        state={state}
+        onSubmit={(submittedData) => {
+          console.log(submittedData)
+          setLoginData(submittedData)
+        }}
+        className={css.form}
+      />
     </div>
   )
 }

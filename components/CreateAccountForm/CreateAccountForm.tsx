@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { Button, Input, Text, Form } from '../../components'
+import { Input, Text, Form } from '../../components'
 import css from './CreateAccountForm.module.css'
 
 type PropsType = {
@@ -25,6 +25,7 @@ const CreateAccountForm = (props: PropsType) => {
       <Form
         canBeSubmitted={!isPasswordMistyped}
         onSubmit={props.onSubmit}
+        state={props.state}
         formData={{ email, password }}
         submitLabel={Text({ tid: 'createAccount' })}
       >
