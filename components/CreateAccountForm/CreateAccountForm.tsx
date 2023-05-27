@@ -18,9 +18,12 @@ const CreateAccountForm = (props: PropsType) => {
     password?.length > 0 &&
     password !== passwordRepeat
 
+  const passwordMistypedText = Text({ tid: 'passwordMistyped' })
+
   return (
     <div className={props.className}>
       <Form
+        canBeSubmitted={!isPasswordMistyped}
         onSubmit={props.onSubmit}
         formData={{ email, password }}
         submitLabel={Text({ tid: 'createAccount' })}
@@ -37,32 +40,34 @@ const CreateAccountForm = (props: PropsType) => {
             }}
           />
         </div>
-        <div className={css.password}>
-          <Input
-            required
-            name="password"
-            label={Text({ tid: 'password' })}
-            type="password"
-            onInput={(event) => {
-              setPassword(event.target.value)
-            }}
-          />
-          <Input
-            required
-            name="passwordSubmit"
-            label={Text({ tid: 'passwordSubmit' })}
-            type="password"
-            onInput={(event) => {
-              setPasswordRepeat(event.target.value)
-            }}
-          />
-
+        <div className={css.passwords}>
+          <div className={css.password}>
+            <Input
+              required
+              name="password"
+              label={Text({ tid: 'password' })}
+              type="password"
+              onInput={(event) => {
+                setPassword(event.target.value)
+              }}
+            />
+          </div>
+          <div className={css.passwordRepeat}>
+            <Input
+              required
+              name="passwordSubmit"
+              label={Text({ tid: 'passwordSubmit' })}
+              type="password"
+              onInput={(event) => {
+                setPasswordRepeat(event.target.value)
+              }}
+            />
+          </div>
           {isPasswordMistyped && (
             <div className={css.passwordMistyped}>
-              {Text({ tid: 'passwordMistyped' })}
+              {passwordMistypedText}.
             </div>
           )}
-
         </div>
       </Form>
     </div>

@@ -9,6 +9,7 @@ type FormPropsType<T> = {
   state?: 'default' | 'loading' | 'error'
   className?: string
   submitLabel: string
+  canBeSubmitted?: boolean
 }
 
 function Form<T> ({ children, ...props }: FormPropsType<T>) {
@@ -36,7 +37,7 @@ function Form<T> ({ children, ...props }: FormPropsType<T>) {
       {children}
       <div className={css.submit}>
         <Button
-          disabled={props.state === 'loading'}
+          disabled={props.state === 'loading' || !props.canBeSubmitted}
           label={props.submitLabel}
         />
       </div>

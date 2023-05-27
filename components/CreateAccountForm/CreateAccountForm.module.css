@@ -2,8 +2,16 @@
   margin: 0 0 35px 0;
 }
 
-.password {
+.passwords {
   margin: 0 0 35px 0;
+}
+
+.password {
+
+}
+
+.passwordRepeat {
+  margin: 15px 0 0 0;
 }
 
 .createAccount {
@@ -12,4 +20,9 @@
 
 .createAccountButton {
   width: 100%;
+}
+
+.passwordMistyped {
+  margin: 15px 0 0 0;
+  color: red;
 }
