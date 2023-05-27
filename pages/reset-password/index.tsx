@@ -1,19 +1,32 @@
 import { NextPage } from 'next'
-import { ResetPasswordForm } from '../../components'
+import { DevLogger, ResetPasswordForm } from '../../components'
 
 import css from './reset-password.module.css'
 import { useEffect, useState } from 'react'
-import { reset } from '../../frontend-api/auth'
+import { login, reset } from '../../frontend-api/auth'
 
 const ResetPasswordPage: NextPage = () => {
   const [state, setState] = useState<'loading' | 'error' | 'default'>('default')
   const [resetData, setResetData] = useState<{ email: string }>({ email: '' })
+  const [resetResponse, setResetResponse] = useState<any>(null)
 
   useEffect(() => {
-    if (resetData.email) {
-      setState('loading')
-      reset(resetData)
+    async function resetAsync () {
+      if (resetData.email) {
+        setState('loading')
+        try {
+          const response = await reset(resetData)
+          setResetResponse(response)
+        } catch (error) {
+          console.error(error)
+          setState('error')
+        } finally {
+          setState('default')
+        }
+      }
     }
+
+    resetAsync()
   }, [resetData])
 
   return (
@@ -26,6 +39,7 @@ const ResetPasswordPage: NextPage = () => {
         }}
         className={css.form}
       />
+      <DevLogger logData={resetResponse} />
     </div>
   )
 }

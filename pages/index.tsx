@@ -4,7 +4,7 @@ import { LoginForm, DevLogger } from '../components'
 import { login } from '../frontend-api/auth'
 import css from './index.module.css'
 
-const Home: NextPage = () => {
+const HomePage: NextPage = () => {
   const [state, setState] = useState<'loading' | 'error' | 'default'>('default')
   const [loginData, setLoginData] = useState<{ email: string, password: string }>({ email: '', password: '' })
   const [loginResponse, setLoginResponse] = useState<any>(null)
@@ -43,4 +43,4 @@ const Home: NextPage = () => {
   )
 }
 
-export default Home
+export default HomePage
