@@ -6,10 +6,13 @@ import '../styles/globals.css'
 function MyApp ({ Component, pageProps }: AppProps) {
   return (
     <LanguageProvider>
-      <div className="language-selector">
-        <LanguageSelector />
+      <div className="app">
+        <div className="language-selector">
+          <LanguageSelector />
+        </div>
+        <Component {...pageProps} />
       </div>
-      <Component {...pageProps} />
+
     </LanguageProvider>
   )
 }
