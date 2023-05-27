@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { LoginForm } from '../components'
-import { login } from './frontend-api/auth'
+import { login } from '../frontend-api/auth'
 import css from './index.module.css'
 
 const Home: NextPage = () => {

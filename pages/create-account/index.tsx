@@ -1,6 +1,6 @@
 import { NextPage } from 'next'
 import { CreateAccountForm } from '../../components'
-import { signup } from '../frontend-api/auth'
+import { signup } from '../../frontend-api/auth'
 
 import css from './create-account.module.css'
 import { useEffect, useState } from 'react'

@@ -3,7 +3,7 @@ import { ResetPasswordForm } from '../../components'
 
 import css from './reset-password.module.css'
 import { useEffect, useState } from 'react'
-import { reset } from '../frontend-api/auth'
+import { reset } from '../../frontend-api/auth'
 
 const ResetPasswordPage: NextPage = () => {
   const [state, setState] = useState<'loading' | 'error' | 'default'>('default')
