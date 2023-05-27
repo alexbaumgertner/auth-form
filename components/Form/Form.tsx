@@ -37,7 +37,7 @@ function Form<T> ({ children, ...props }: FormPropsType<T>) {
       {children}
       <div className={css.submit}>
         <Button
-          disabled={props.state === 'loading' || !props.canBeSubmitted}
+          disabled={props.state === 'loading' || props.canBeSubmitted === false}
           label={props.submitLabel}
         />
       </div>
