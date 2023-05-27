@@ -7,7 +7,7 @@ import css from './index.module.css'
 const HomePage: NextPage = () => {
   const [state, setState] = useState<'loading' | 'error' | 'default'>('default')
   const [loginData, setLoginData] = useState<{ email: string, password: string }>({ email: '', password: '' })
-  const [loginResponse, setLoginResponse] = useState<any>(null)
+  const [loginResponse, setLoginResponse] = useState<any>(undefined)
 
   useEffect(() => {
     async function loginAsync () {

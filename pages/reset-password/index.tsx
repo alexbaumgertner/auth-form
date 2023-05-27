@@ -8,7 +8,7 @@ import { login, reset } from '../../frontend-api/auth'
 const ResetPasswordPage: NextPage = () => {
   const [state, setState] = useState<'loading' | 'error' | 'default'>('default')
   const [resetData, setResetData] = useState<{ email: string }>({ email: '' })
-  const [resetResponse, setResetResponse] = useState<any>(null)
+  const [resetResponse, setResetResponse] = useState<any>(undefined)
 
   useEffect(() => {
     async function resetAsync () {

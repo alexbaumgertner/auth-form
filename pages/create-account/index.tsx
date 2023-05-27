@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react'
 const CreateAccountPage: NextPage = () => {
   const [state, setState] = useState<'loading' | 'error' | 'default'>('default')
   const [signUpData, setSignUpData] = useState<{ email: string, password: string }>({ email: '', password: '' })
-  const [loginResponse, setLoginResponse] = useState<any>(null)
+  const [loginResponse, setLoginResponse] = useState<any>(undefined)
 
   useEffect(() => {
     async function signupAsync () {
