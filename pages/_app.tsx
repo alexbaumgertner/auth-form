@@ -10,6 +10,7 @@ function MyApp ({ Component, pageProps }: AppProps) {
       <Head>
         <title>React Login form</title>
         <meta name="description" content="Login form" />
+
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="app">
