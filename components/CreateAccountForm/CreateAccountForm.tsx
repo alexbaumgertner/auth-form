@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 import { Input, Text, Form } from '../../components'
 import css from './CreateAccountForm.module.css'
+import Link from 'next/link'
 
 type PropsType = {
   onSubmit: (formData: { email: string, password: string }) => void
@@ -71,6 +72,13 @@ const CreateAccountForm = (props: PropsType) => {
           )}
         </div>
       </Form>
+      <div className={css.login}>
+        <Link
+          href="/login"
+        >
+          {Text({ tid: 'login' })}
+        </Link>
+      </div>
     </div>
   )
 }

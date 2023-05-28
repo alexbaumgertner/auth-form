@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 import { Input, Text, Form } from '../../components'
 import css from './ResetPasswordForm.module.css'
+import Link from 'next/link'
 
 type PropsType = {
   onSubmit: (loginData: { email: string }) => void
@@ -31,6 +32,13 @@ const ResetPasswordForm = (props: PropsType) => {
           />
         </div>
       </Form>
+      <div className={css.login}>
+        <Link
+          href="/login"
+        >
+          {Text({ tid: 'login' })}
+        </Link>
+      </div>
     </div>
   )
 }

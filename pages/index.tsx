@@ -1,44 +1,34 @@
-import { useState, useEffect } from 'react'
 import type { NextPage } from 'next'
-import { LoginForm, DevLogger } from '../components'
-import { login } from '../frontend-api/auth'
+import Link from 'next/link'
 import css from './index.module.css'
+import { Text } from '../components'
 
 const HomePage: NextPage = () => {
-  const [state, setState] = useState<'loading' | 'error' | 'default'>('default')
-  const [loginData, setLoginData] = useState<{ email: string, password: string }>({ email: '', password: '' })
-  const [loginResponse, setLoginResponse] = useState<any>(undefined)
-
-  useEffect(() => {
-    async function loginAsync () {
-      if (loginData.email && loginData.password) {
-        setState('loading')
-        try {
-          const response = await login(loginData)
-          setLoginResponse(response)
-        } catch (error) {
-          console.error(error)
-          setState('error')
-        } finally {
-          setState('default')
-        }
-      }
-    }
-
-    loginAsync()
-  }, [loginData])
-
   return (
     <div className={css.page}>
-      <LoginForm
-        state={state}
-        onSubmit={(submittedData) => {
-          console.log(submittedData)
-          setLoginData(submittedData)
-        }}
-        className={css.form}
-      />
-      <DevLogger logData={loginResponse} />
+      <ul>
+        <li>
+          <Link
+            href="/login"
+          >
+            {Text({ tid: 'login' })}
+          </Link>
+        </li>
+        <li>
+          <Link
+            href="/create-account"
+          >
+            {Text({ tid: 'createAccount' })}
+          </Link>
+        </li>
+        <li>
+          <Link
+            href="/reset-password"
+          >
+            {Text({ tid: 'resetPassword' })}
+          </Link>
+        </li>
+      </ul>
     </div>
   )
 }
