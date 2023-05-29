@@ -4,6 +4,8 @@
   "password": "Пароль",
   "passwordSubmit": "Подтвердите пароль",
   "resetPassword": "Сбросить пароль",
+  "sendRecoverLinkToEmail": "Отправить ссылку",
+  "resetPasswordInstruction": "Введите почту, на которую зарегистрирован аккаунт. На нее будет отправлена ссылка для сброса пароля.",
   "remindPassword": "Забыли пароль?",
   "login": "Войти",
   "createAccount": "Регистрация",

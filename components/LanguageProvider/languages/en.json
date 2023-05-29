@@ -4,6 +4,8 @@
   "password": "Password",
   "passwordSubmit": "Confirm password",
   "resetPassword": "Reset password",
+  "resetPasswordInstruction": "Enter your e-mail address and we will send you a link to reset your password.",
+  "sendRecoverLinkToEmail": "Send recover link",
   "remindPassword": "Remind password",
   "login": "Login",
   "createAccount": "Create an account",

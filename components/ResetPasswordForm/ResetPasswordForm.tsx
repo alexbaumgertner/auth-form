@@ -18,8 +18,11 @@ const ResetPasswordForm = (props: PropsType) => {
         onSubmit={props.onSubmit}
         state={props.state}
         formData={{ email }}
-        submitLabel={Text({ tid: 'resetPassword' })}
+        submitLabel={Text({ tid: 'sendRecoverLinkToEmail' })}
       >
+        <div className={css.instruction}>
+          {Text({ tid: 'resetPasswordInstruction' })}
+        </div>
         <div className={css.email}>
           <Input
             required
