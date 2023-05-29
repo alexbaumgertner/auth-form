@@ -4,3 +4,11 @@
   padding: 20px 100px 20px 20px;
   background-color: moccasin;
 }
+
+@media screen and (max-width: 480px) {
+  .container {
+    width: 270px;
+    margin: 20px 0 0 0;
+    padding: 30px 50px;
+  }
+}
