@@ -6,7 +6,7 @@ import { Text } from '../components'
 const HomePage: NextPage = () => {
   return (
     <div className={css.page}>
-      <ul>
+      <ul className={css.menu}>
         <li>
           <Link
             href="/login"
