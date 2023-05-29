@@ -34,6 +34,12 @@ function Form<T> ({ children, ...props }: FormPropsType<T>) {
         return props.onSubmit(props.formData)
       }}
     >
+      <input
+        type="hidden"
+        name="csrf"
+        value={'@TODO'}
+      />
+
       {children}
       <div className={css.submit}>
         <Button
