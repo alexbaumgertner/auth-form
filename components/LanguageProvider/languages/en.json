@@ -9,5 +9,7 @@
   "remindPassword": "Remind password",
   "login": "Login",
   "createAccount": "Create an account",
-  "passwordMistyped": "Passwords should match"
+  "passwordMistyped": "Passwords should match",
+  "showPassword": "Show password",
+  "hidePassword": "Hide password"
 }

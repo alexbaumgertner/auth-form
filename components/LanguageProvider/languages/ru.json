@@ -9,5 +9,7 @@
   "remindPassword": "Забыли пароль?",
   "login": "Войти",
   "createAccount": "Регистрация",
-  "passwordMistyped": "Пароли не совпадают"
+  "passwordMistyped": "Пароли не совпадают",
+  "showPassword": "Показать пароль",
+  "hidePassword": "Скрыть пароль"
 }

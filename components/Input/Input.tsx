@@ -1,6 +1,11 @@
+import { useState } from 'react'
+
+import { Text } from '../../components'
+
 type InputProps = {
   required?: boolean
   autoFocus?: boolean
+  disabled?: boolean
   label?: string
   name?: string
   placeholder?: string
@@ -25,9 +30,12 @@ const Input = (props: InputProps) => {
     placeholder,
     name,
     autoComplete,
+    disabled,
   } = props
 
   const isExactValues = ['password', 'email'].includes(type)
+
+  const [showPassword, setShowPassword] = useState(false)
 
   return (
     <div className={css.container}>
@@ -41,9 +49,10 @@ const Input = (props: InputProps) => {
         className={css.control}
         name={name}
         id={name}
+        disabled={disabled}
         required={required}
         aria-required={required}
-        type={type}
+        type={type !== 'password' ? type : showPassword ? 'text' : 'password'}
         aria-label={label}
         onInput={onInput}
         placeholder={placeholder}
@@ -51,6 +60,18 @@ const Input = (props: InputProps) => {
         autoFocus={props.autoFocus}
         {...(isExactValues ? inputExactValuesAttributes : {})}
       />
+      {type === 'password' && (
+        <button
+          title={showPassword ? Text({ tid: 'hidePassword' }) : Text({ tid: 'showPassword' })}
+          className={css.showPasswordButton}
+          type="button"
+          onClick={() => {
+            setShowPassword((currentShowPasswordValue) => !currentShowPasswordValue)
+          }}
+        >
+          {showPassword ? '🙈' : '👀'}
+        </button>
+      )}
     </div>
 
   )

@@ -1,5 +1,6 @@
 .container {
   display: block;
+  position: relative;
 }
 
 .label {
@@ -15,6 +16,7 @@
   border: 1px solid #e0e0e0;
   background-color: transparent !important;
   font-size: 1em;
+  box-sizing: border-box;
 }
 
 .control:hover {
@@ -23,4 +25,16 @@
 
 .control:focus {
   border: 1px solid #050505;
+}
+
+.showPasswordButton {
+  position: absolute;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  width: 40px;
+  height: 30px;
+  top: calc(100% - 33px);
+  right: 0;
+  font-size: 1.4em;
 }
