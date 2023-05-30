@@ -1,7 +1,7 @@
 import React, { useState, createContext, useContext, useEffect } from 'react'
 
 import { languageOptions, dictionaryList } from './languages'
-import type { LanguagesEnum } from './languages'
+import type { LanguagesEnum, TranslatesKeysType } from './languages'
 
 type LanguageContextType = {
   userLanguage: keyof typeof LanguagesEnum
@@ -44,7 +44,7 @@ export const LanguageProvider = ({ children }: { children: React.ReactNode }) =>
 }
 
 // get text according to id & current language
-export function Text ({ tid }: { tid: string }): string {
+export function Text ({ tid }: { tid: TranslatesKeysType }): string {
   const languageContext = useContext(LanguageContext)
 
   return languageContext.dictionary[tid] || tid

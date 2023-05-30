@@ -1,13 +1,15 @@
 import en from './en.json'
 import ru from './ru.json'
 
+export type TranslatesKeysType = keyof typeof en
+
 export enum LanguagesEnum {
   en = 'en',
   ru = 'ru',
 }
 
 export type DictionaryList = {
-  [key in LanguagesEnum]: { [key: string]: string }
+  [key in LanguagesEnum]: Record<TranslatesKeysType, string>
 }
 
 type LanguageOptionsType = {
@@ -15,6 +17,7 @@ type LanguageOptionsType = {
 }
 
 export const dictionaryList: DictionaryList = { en, ru }
+
 export const languageOptions: LanguageOptionsType = {
   en: 'English',
   ru: 'Русский',
