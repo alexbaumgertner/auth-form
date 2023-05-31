@@ -26,6 +26,7 @@ const LoginForm = (props: LoginFormProps) => {
             required
             name="email"
             type="email"
+            autoComplete="username"
             label={Text({ tid: 'email' })}
             placeholder={Text({ tid: 'emailPlaceholder' })}
             onInput={(event) => {
@@ -37,6 +38,7 @@ const LoginForm = (props: LoginFormProps) => {
           <Input
             required
             name="password"
+            autoComplete="current-password"
             label={Text({ tid: 'password' })}
             type="password"
             onInput={(event) => {

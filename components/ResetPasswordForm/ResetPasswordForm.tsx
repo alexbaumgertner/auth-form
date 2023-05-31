@@ -27,6 +27,7 @@ const ResetPasswordForm = (props: PropsType) => {
           <Input
             required
             name="email"
+            autoComplete="username"
             label={Text({ tid: 'email' })}
             placeholder={Text({ tid: 'emailPlaceholder' })}
             onInput={(event) => {

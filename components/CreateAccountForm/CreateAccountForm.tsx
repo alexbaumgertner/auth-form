@@ -35,6 +35,7 @@ const CreateAccountForm = (props: PropsType) => {
             required
             type="email"
             name="email"
+            autoComplete="username"
             label={Text({ tid: 'email' })}
             placeholder={Text({ tid: 'emailPlaceholder' })}
             onInput={(event) => {
@@ -47,6 +48,7 @@ const CreateAccountForm = (props: PropsType) => {
             <Input
               required
               name="password"
+              autoComplete="new-password"
               label={Text({ tid: 'password' })}
               type="password"
               onInput={(event) => {
@@ -58,6 +60,7 @@ const CreateAccountForm = (props: PropsType) => {
             <Input
               required
               name="passwordSubmit"
+              autoComplete="new-password"
               label={Text({ tid: 'passwordSubmit' })}
               type="password"
               onInput={(event) => {
