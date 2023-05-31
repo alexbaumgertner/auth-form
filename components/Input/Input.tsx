@@ -69,7 +69,7 @@ const Input = (props: InputProps) => {
             setShowPassword((currentShowPasswordValue) => !currentShowPasswordValue)
           }}
         >
-          {showPassword ? '🙈' : '👀'}
+          {showPassword ? Text({ tid: 'hidePassword' }) : Text({ tid: 'showPassword' })}
         </button>
       )}
     </div>
